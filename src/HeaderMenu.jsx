@@ -4,10 +4,23 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 
 export default function HeaderMenu() {
+
+    const navLinkProps = [{
+        href: "/aboutme",
+        contentText: "Home",
+    },{
+        href: "/projects",
+        contentText: "Projects",
+    },{
+        href: "contactme",
+        contentText: "Contact me",
+    }
+];
+
     return (
         <Navbar collapseOnSelect expand="sm" bg='secondary' variant='dark'>
             <Container fluid>
-                <Navbar.Brand href='#'>
+                <Navbar.Brand href='/aboutme'>
                 <img
                     alt=""
                     src={logo}
@@ -20,9 +33,9 @@ export default function HeaderMenu() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className='me-auto'>
-                        <Nav.Link href="#">Home</Nav.Link>
-                        <Nav.Link href="#">Projects</Nav.Link>
-                        <Nav.Link href="#">Contact me</Nav.Link>
+                        {navLinkProps.map(
+                            props => <Nav.Link href={props.href} >{props.contentText}</Nav.Link>
+                            )}                        
                     </Nav>
                 </Navbar.Collapse>
             </Container>
