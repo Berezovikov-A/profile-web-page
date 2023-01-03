@@ -1,4 +1,4 @@
-import { Routes as Switch, Route } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 import AboutMe from './AboutMe';
 import Projects from './Projects';
 import ContactMe from './ContactMe';
@@ -16,9 +16,9 @@ export default function PageRouter() {
     }]
 
     return (
-            <Switch>
+            <Routes>
                 {paths.map((path) => <Route {...path} />)}
-            </Switch>
+            </Routes>
 
     )
 }
