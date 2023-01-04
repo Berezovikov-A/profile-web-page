@@ -3,13 +3,15 @@ import { Container, Row, Col, Image } from "react-bootstrap"
 
 export default function AboutMe() {
     return (
-        <div className="m-2">
-            <Container>
+        <div className="mt-4">
+            <Container fluid>
                 <Row>
-                    <Col xs={4}>
+                    <Col sm={6} md={4} xl={3} lg={3}>
                         <Image src={ProfilePhoto} fluid roundedCircle thumbnail />
                     </Col>
-                    <Col>Bio</Col>
+                    <Col>
+                        <h1>About me</h1>
+                    </Col>
                 </Row>
             </Container>
        </div>
