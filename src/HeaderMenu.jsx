@@ -21,9 +21,9 @@ export default function HeaderMenu() {
     ];
 
     return (
-        <Navbar collapseOnSelect expand="sm" bg='secondary' variant='dark'>
+        <Navbar collapseOnSelect expand="sm" bg="secondary" variant="dark">
             <Container fluid>
-                <Navbar.Brand href='/'>
+                <Navbar.Brand href="/">
                 <img
                     alt=""
                     src={logo}
