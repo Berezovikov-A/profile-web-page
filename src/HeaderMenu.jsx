@@ -8,13 +8,22 @@ export default function HeaderMenu() {
 
     const navLinkProps = [
         {
-            to: "/",
+            props: {
+                to: "/",
+                key: "aboutme",
+            },
             children: "About Me",
         },{
-            to: "/projects",
+            props: {
+                to: "/projects",
+                key: "myprojects",
+            },
             children: "My Projects",
         },{
-            to: "/contact-me",
+            props: {
+                to: "/contact-me",
+                key: "contactme",
+            },
             children: "Contact Me",
 
         },
@@ -36,9 +45,9 @@ export default function HeaderMenu() {
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                     <Nav className='me-auto'>
-                        {navLinkProps.map(props => 
-                            <LinkContainer to={props.to}>
-                                <Nav.Link>{props.children}</Nav.Link>
+                        {navLinkProps.map(({ props, children}) => 
+                            <LinkContainer {...props}>
+                                <Nav.Link>{children}</Nav.Link>
                             </LinkContainer>
                         )}
                     </Nav>

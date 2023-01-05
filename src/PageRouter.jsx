@@ -6,12 +6,15 @@ import ContactMe from './ContactMe';
 export default function PageRouter() {
     const paths = [{
         path: '/', 
+        key: 'aboutme',
         element: <AboutMe />,
     },{
-        path: '/projects', 
+        path: '/projects',
+        key: 'projects', 
         element: <Projects />,
     },{
-        path: '/contact-me', 
+        path: '/contact-me',
+        key: 'contactme', 
         element: <ContactMe />,       
     }]
 
