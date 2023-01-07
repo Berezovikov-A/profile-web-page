@@ -6,28 +6,26 @@ import { Container, Row, Col, Card, Image, Tab, Nav } from "react-bootstrap";
 export default function AboutMe() {
 
     return (
-        <div className="mt-4">
-            <Container fluid>
-                <Row>
-                    <Col sm={5} md={4} lg={3}>
-                        <Card>
-                            <Card.Img variant="top" src={ProfilePhoto} />
-                            <Card.Body>
-                                <Card.Title>Alexey Berezovikov</Card.Title>
-                            </Card.Body>
-                            <Card.Body>
-                                <Card.Text><Image src={WorkplaceIcon} fluid /> Data Analyst at Rating ltd</Card.Text>
-                                <Card.Text><Image src={LocationIcon} fluid /> Oskemen, Kazakstan</Card.Text>
-                            </Card.Body>
-                        </Card>
-                    </Col>
-                    <Col>
-                        <h1>About me</h1>
-                        <BioCard />
-                    </Col>
-                </Row>
-            </Container>
-       </div>
+        <Container fluid className="mt-4">
+            <Row>
+                <Col sm={5} md={4} lg={3}>
+                    <Card>
+                        <Card.Img variant="top" src={ProfilePhoto} />
+                        <Card.Body>
+                            <Card.Title>Alexey Berezovikov</Card.Title>
+                        </Card.Body>
+                        <Card.Body>
+                            <Card.Text><Image src={WorkplaceIcon} fluid /> Data Analyst at Rating ltd</Card.Text>
+                            <Card.Text><Image src={LocationIcon} fluid /> Oskemen, Kazakstan</Card.Text>
+                        </Card.Body>
+                    </Card>
+                </Col>
+                <Col>
+                    <h1>About me</h1>
+                    <BioCard />
+                </Col>
+            </Row>
+        </Container>
     );
 };
 

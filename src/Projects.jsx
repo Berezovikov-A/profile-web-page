@@ -1,8 +1,19 @@
+import { Container } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
 import logo from './logo.svg';
 
 
 export default function Projects() {
+    return (
+        <Container fluid className='mt-4 border'>
+            <ProjectSlides />
+        </Container>
+    )
+}
+
+
+const ProjectSlides = () => {
+    
     const carouselProps = [{
         children: "Slide1",
     },{
