@@ -24,13 +24,17 @@ const ContactForm = () => {
         alert('Message sent!');
     }
 
+    // 1. with useFormik hook create the object for form validation and submimssion
+    // 2. create an object with the reference to the hook created values
+    // or is it possible to pass some props into the formik object?
+    
     return (
         <Form onSubmit={handleSubmit}>
             <FloatingLabel label="Your name" className="mb-3">
-                <Form.Control type="text" placeholder="Your name"/>
+                <Form.Control type="text" placeholder="Your name" />
             </FloatingLabel>
             <FloatingLabel label="Your email" className="mb-3">
-                <Form.Control type="email" placeholder="Your email"/>
+                <Form.Control type="email" placeholder="Your email" />
             </FloatingLabel>
             <FloatingLabel label="Your message" className="mb-3">
                 <Form.Control as="textarea" placeholder="Leave your message" style={{ height: "200px" }} />
