@@ -1,6 +1,5 @@
 import { Container, Row, Col, Form, FloatingLabel, Button } from "react-bootstrap";
 
-
 export default function ContactMe() {
     return (
         <Container fluid className="mt-4">
@@ -22,6 +21,7 @@ const ContactForm = () => {
     const handleSubmit = (event) => {
         event.preventDefault();
         alert('Message sent!');
+        console.log(event.target.value)
     }
 
     // 1. with useFormik hook create the object for form validation and submimssion
@@ -30,16 +30,19 @@ const ContactForm = () => {
     
     return (
         <Form onSubmit={handleSubmit}>
-            <FloatingLabel label="Your name" className="mb-3">
-                <Form.Control type="text" placeholder="Your name" />
-            </FloatingLabel>
-            <FloatingLabel label="Your email" className="mb-3">
-                <Form.Control type="email" placeholder="Your email" />
-            </FloatingLabel>
-            <FloatingLabel label="Your message" className="mb-3">
-                <Form.Control as="textarea" placeholder="Leave your message" style={{ height: "200px" }} />
-            </FloatingLabel>
+            <FloatingLabelField label="Your name" type="text" />
+            <FloatingLabelField label="Your email" type="email" />
+            <FloatingLabelField label="Your message" type="textarea" />
             <Button type="submit">Send the message</Button>
         </Form>
     );
 };
+
+const FloatingLabelField = ({label, type}) => {
+
+    return (
+        <FloatingLabel label={label} className="mb-3">
+                <Form.Control type={type} placeholder={label} style={type === "textarea" ? { height: "200px" } : {}}/>
+        </FloatingLabel>
+    )
+}
