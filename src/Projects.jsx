@@ -1,11 +1,13 @@
-import { Container } from 'react-bootstrap';
+import { Container, Image } from 'react-bootstrap';
 import Carousel from 'react-bootstrap/Carousel';
-import logo from './logo.svg';
+import ProjectOne from './assets/project_one.png';
+import ProjectTwo from './assets/project_two.png';
+import ProjectThree from './assets/project_three.png';
 
 
 export default function Projects() {
     return (
-        <Container fluid className='mt-4 border'>
+        <Container fluid >
             <ProjectSlides />
         </Container>
     )
@@ -15,28 +17,29 @@ export default function Projects() {
 const ProjectSlides = () => {
     
     const carouselProps = [{
-        children: "Slide1",
+        src: ProjectOne,
+        children: "Web pages for your business",
     },{
-        children: "Slide2",
+        src: ProjectTwo,
+        children: "React web apps with complex logic",
     },{
-        children: "Slide3",
+        src: ProjectThree,
+        children: "Multi-paged React web apps",
     }];
 
     return (
-        <div className="mt-4">
-                <Carousel variant='dark'>
-                    {carouselProps.map(({children}) =>
-                        <Carousel.Item>
-                                <img
-                                className="d-block w-100"
-                                src={logo}
+                <Carousel>
+                    {carouselProps.map(({src, children}) =>
+                        <Carousel.Item key={children}>
+                                <Image
+                                fluid
+                                src={src}
                                 alt={children}
-                                />
-                            <Carousel.Caption>
-                                <h3>{children}</h3>
+                                />                                
+                            <Carousel.Caption style={{backgroundColor: "rgba(0,0,0,0.5)"}}>
+                                <h3 >{children}</h3>
                             </Carousel.Caption>
                         </Carousel.Item>)}
                 </Carousel>
-        </div>    
     );
 };

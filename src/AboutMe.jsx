@@ -1,73 +1,129 @@
 import ProfilePhoto from "./assets/ProfilePhoto.jpg";
-import WorkplaceIcon from "./assets/office-business-work-workplace-home-company-svgrepo-com.svg";
-import LocationIcon from "./assets/location-svgrepo-com.svg";
-import { Container, Row, Col, Card, Image, Tab, Nav } from "react-bootstrap";
+import { 
+    Container, 
+    Row, 
+    Col, 
+    Card, 
+    Tab, 
+    Nav 
+} from "react-bootstrap";
+import { useTheme } from "./ModeContext";
 
 export default function AboutMe() {
 
+    const { theme } = useTheme();
+
+    const darkProps = {
+        bg: "secondary",
+        className: "text-light",
+        border: "light",
+    }
+
     return (
-        <Container fluid className="mt-4">
-            <Row>
-                <Col sm={5} md={4} lg={3}>
-                    <Card>
-                        <Card.Img variant="top" src={ProfilePhoto} />
-                        <Card.Body>
-                            <Card.Title>Alexey Berezovikov</Card.Title>
-                        </Card.Body>
-                        <Card.Body>
-                            <Card.Text><Image src={WorkplaceIcon} fluid /> Data Analyst at Rating ltd</Card.Text>
-                            <Card.Text><Image src={LocationIcon} fluid /> Oskemen, Kazakstan</Card.Text>
-                        </Card.Body>
-                    </Card>
-                </Col>
-                <Col>
-                    <h1>About me</h1>
-                    <BioCard />
-                </Col>
-            </Row>
-        </Container>
+        <div className="mt-4" >
+            <Container fluid>
+                <Row >
+                    <Col sm={5} md={4} lg={3}>
+                        <Card {...(theme === "dark" && { ...darkProps })}>
+                            <Card.Img variant="top" src={ProfilePhoto} />
+                            <Card.Body>
+                                <Card.Title>Alexey Berezovikov</Card.Title>
+                            </Card.Body>
+                            <Card.Body>
+                                <Card.Text>Data Analyst at Rating ltd</Card.Text>
+                                <Card.Text>Oskemen, Kazakstan</Card.Text>
+                            </Card.Body>
+                        </Card>
+                    </Col>
+                    <Col className={theme === "dark" && "bg-dark"}>
+                        <h1>About me</h1>
+                        <BioCard  />
+                    </Col>
+                </Row>
+            </Container>
+        </div>
     );
 };
 
 const BioCard = () => {
+
+    const { theme } = useTheme();
+
+    const darkActiveTab =                    
+        <style type="text/css">
+            {`
+                .nav-tabs .nav-link.active{
+                    background-color: #212529;
+                    border-bottom-color: #212529;
+                }
+            `}
+        </style>
+
+    const darkProps = {
+        bg: "dark",
+        className: "text-light",
+        border: "light",
+    }
     
     const tabProps = [{
         key: "sum",
         eventKey: "summary",
         title: "Summary",
-        children: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.",
+        children: ["A highly motivated and resourceful specialist with experience in installing and servicing computers, peripherals, and other electronic equipment. Possesses an aptitude for acquiring new skills quickly and a capacity to work efficiently without supervision. Proven ability to adapt to changing situations while meeting tight deadlines without compromising quality."],
     }, {
         key: "exp",
         eventKey: "experience",
         title: "Experience",
-        children: "Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur?",
+        children: [
+            <h5 key="j2">Data Analyst at Rating Ltd., Oskemen 
+            </h5>,
+            <p key="d2">Aug 2022 - present</p>,
+            <ul key="l2">
+                <li key="s2.1">In the first year of work created 4 dashboards on common civil issues, which helped discover insights pleasing the stakeholders.</li>
+                <li key="s2.2">Created one of the firs predictive ML models, widenning the list of companies services</li>
+            </ul>,
+            <h5 key="j1">User Support Specialist at East Kazakhstan Humanitarian College, Oskemen 
+            </h5>,
+            <p key="d1">Sep 2009 - Aug 2012</p>,
+            <ul key="l1">
+                <li key="s1">Developed a method to detect and remove common malware, which led to an increase of the department's efficiency;</li>
+                <li key="s2">Set up and maintained the companies own printing room leading to a decrease in expenditure.</li>
+            </ul>,
+        ],
     }, {
         key: "edu",
         eventKey: "education",
         title: "Education",
-        children: "At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores et quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi, id est laborum et dolorum fuga. Et harum quidem rerum facilis est et expedita distinctio. Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat facere possimus, omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam et aut officiis debitis aut rerum necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur aut perferendis doloribus asperiores repellat."
+        children: [
+            <h5 key="u1">Sarsen Amanzholov East Kazakhstan State University, Oskemen — Bachelor of Education in Computer Science
+            </h5>,
+            <p key="d1">Sep 2013 - Jun 2015</p>
+            ]
     }];
 
     return (
-        <Tab.Container defaultActiveKey="summary">
-            <Card>
-                <Card.Header>
-                    <Nav variant="tabs">
-                        {tabProps.map(({key, eventKey, title}) => 
-                            <Nav.Item key={key}>
-                                <Nav.Link eventKey={eventKey}>{title}</Nav.Link>
-                            </Nav.Item>
-                        )}
-                    </Nav>
-                </Card.Header>
-                <Card.Body>
-                    <Tab.Content>
-                        {tabProps.map(({key, eventKey, children}) => 
-                            <Tab.Pane key={key} eventKey={eventKey}>{children}</Tab.Pane>                            
-                        )}
-                    </Tab.Content>
-                </Card.Body>
-            </Card>
-        </Tab.Container>
+        <div className="mb-4">
+            <Tab.Container defaultActiveKey="summary">
+                <Card {...(theme === "dark" && {...darkProps})}>
+                    <Card.Header className={theme === "dark" && "bg-secondary"}>
+                        {theme === "dark" && darkActiveTab}
+                        <Nav variant="tabs" >
+                            {tabProps.map(({key, eventKey, title}) => 
+                                <Nav.Item key={key} >
+                                    <Nav.Link eventKey={eventKey} className={theme === "dark" && "text-light"}>{title}</Nav.Link>
+                                </Nav.Item>
+                            )}
+                        </Nav>
+                    </Card.Header>
+                    <Card.Body >
+                        <Tab.Content>
+                            {tabProps.map(({key, eventKey, children}) => 
+                                <Tab.Pane key={key} eventKey={eventKey}>{children}</Tab.Pane>                            
+                            )}
+                        </Tab.Content>
+                    </Card.Body>
+                </Card>
+            </Tab.Container>
+        </div>
     );
 };

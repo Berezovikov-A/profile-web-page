@@ -19,7 +19,7 @@ export default function PageRouter() {
     }]
 
     return (
-            <Routes>
+            <Routes >
                 {paths.map((path) => <Route {...path} />)}
             </Routes>
 

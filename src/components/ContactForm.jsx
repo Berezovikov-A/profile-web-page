@@ -48,7 +48,7 @@ export default function ContactForm() {
         })
  
     return (
-        <Form onSubmit={handleSubmit} >
+        <Form onSubmit={handleSubmit} className="text-dark">
             <FloatingLabelField 
                 label="Your name" 
                 type="text" 

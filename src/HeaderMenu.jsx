@@ -3,8 +3,12 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import { LinkContainer } from 'react-router-bootstrap';
+import Form from 'react-bootstrap/Form'
+import { useTheme } from './ModeContext';
 
 export default function HeaderMenu() {
+
+    const { theme } = useTheme();
 
     const navLinkProps = [
         {
@@ -30,7 +34,7 @@ export default function HeaderMenu() {
     ];
 
     return (
-        <Navbar collapseOnSelect expand="sm" bg="primary" variant="dark">
+        <Navbar collapseOnSelect expand="sm" bg={theme === "light" ? "light" : "secondary"} variant={theme === "light" ? "light" : "dark"}>
             <Container fluid>
                 <Navbar.Brand href="/">
                 <img
@@ -51,8 +55,18 @@ export default function HeaderMenu() {
                             </LinkContainer>
                         )}
                     </Nav>
+                    <Switch />
                 </Navbar.Collapse>
             </Container>
         </Navbar>
 );
 };
+
+const Switch = () => {
+
+    const {theme, toggleTheme} = useTheme();
+
+    return (
+        <Form.Switch checked={theme === "light"} onChange={toggleTheme} />
+    )
+}
