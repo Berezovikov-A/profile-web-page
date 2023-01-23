@@ -7,7 +7,7 @@ export default function Footer() {
     return (
         <footer className={"footer mt-auto py-3" + (theme === "dark"? " bg-secondary" : " bg-light")}>
             <div className="text-center p-3" >
-                © 2020 Copyright: <b>Alexey Berezovikov</b>
+                © 2023 Copyright: <b>Alexey Berezovikov</b>
             </div>
         </footer>
     );
